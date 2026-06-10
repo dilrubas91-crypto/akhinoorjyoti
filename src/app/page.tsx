@@ -59,9 +59,12 @@ export default function Home() {
           </div>
         </div>
         
-        <div className="absolute bottom-12 right-12 z-10 flex flex-col items-end">
-          <div className="w-1 h-20 bg-gradient-to-b from-transparent to-secondary"></div>
-          <span className="text-[10px] font-black text-white uppercase tracking-widest mt-4 rotate-90 origin-right translate-y-8">Archive Navigator</span>
+        {/* Repositioned Archive Navigator */}
+        <div className="absolute bottom-16 right-8 z-10 hidden md:flex flex-col items-center">
+          <div className="w-px h-24 bg-gradient-to-b from-transparent to-secondary"></div>
+          <span className="text-[10px] font-black text-white/50 uppercase tracking-[0.4em] mt-8 [writing-mode:vertical-lr] rotate-180">
+            Archive Navigator
+          </span>
         </div>
       </section>
 
