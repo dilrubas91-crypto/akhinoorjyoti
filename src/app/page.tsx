@@ -35,9 +35,9 @@ export default function Home() {
           <span className="block text-secondary font-black tracking-[0.6em] uppercase text-sm animate-fade-in">
             Intellectual Performance Art
           </span>
-          <h1 className="text-7xl md:text-9xl lg:text-[12rem] font-black text-white leading-[0.85] tracking-tighter uppercase drop-shadow-2xl">
-            Radiance <br />
-            <span className="text-secondary italic font-normal ml-0 md:ml-40">Narrative.</span>
+          <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black text-white leading-[0.85] tracking-tighter uppercase drop-shadow-2xl">
+            Seikh <br />
+            <span className="text-secondary italic font-normal ml-0 md:ml-20">Akhinoor Jyoti.</span>
           </h1>
           <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-12 pt-8">
             <div className="max-w-md">
@@ -73,7 +73,7 @@ export default function Home() {
       <footer className="py-20 editorial-grid border-t bg-background">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-10 md:space-y-0">
           <div className="text-center md:text-left">
-            <div className="font-headline text-4xl font-black uppercase mb-4">Radiance Narrative</div>
+            <div className="font-headline text-4xl font-black uppercase mb-4 leading-tight">Seikh Akhinoor <br/> Jyoti</div>
             <p className="text-muted-foreground text-sm uppercase tracking-widest font-bold">
               © 2024 Intellectual Portfolio & Artistic Archives.
             </p>

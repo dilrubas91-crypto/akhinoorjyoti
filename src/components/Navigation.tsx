@@ -30,7 +30,7 @@ export default function Navigation() {
       isScrolled ? "bg-background/90 backdrop-blur-md py-4 shadow-sm" : "bg-transparent"
     )}>
       <div className="font-headline text-2xl font-black tracking-tighter uppercase border-b-2 border-primary">
-        RN.
+        SAJ.
       </div>
       <ul className="hidden md:flex space-x-12">
         {navItems.map((item) => (

@@ -3,8 +3,8 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Radiance Narrative | Academic & Artistic Portfolio',
-  description: 'A comprehensive interactive archive of academic excellence, cognitive strategy, and artistic performance.',
+  title: 'Seikh Akhinoor Jyoti | Academic & Artistic Portfolio',
+  description: 'A comprehensive interactive archive of academic excellence, cognitive strategy, and artistic performance by Seikh Akhinoor Jyoti.',
 };
 
 export default function RootLayout({
