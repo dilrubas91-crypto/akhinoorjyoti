@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -34,9 +33,6 @@ export default function Home() {
         )}
         <div className="relative z-10 space-y-12">
           <div className="space-y-4">
-            <span className="block text-secondary font-black tracking-[0.6em] uppercase text-sm animate-fade-in">
-              Intellectual Performance Art
-            </span>
             <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black text-white leading-[0.85] tracking-tighter uppercase drop-shadow-2xl">
               Seikh <br />
               <span className="text-secondary italic font-normal ml-0 md:ml-20">Akhinoor Jyoti.</span>
