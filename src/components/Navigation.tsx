@@ -35,6 +35,38 @@ export default function Navigation() {
         ? "bg-background/95 backdrop-blur-md py-4 shadow-sm text-foreground" 
         : "bg-transparent text-white"
     )}>
+      {/* Mobile/Small Tablet Navigation Trigger (Left Side) */}
+      <div className="lg:hidden">
+        <Sheet>
+          <SheetTrigger asChild>
+            <button className="p-2 -ml-2" aria-label="Open Menu">
+              <Menu className={cn("w-6 h-6", isScrolled ? "text-black" : "text-white")} />
+            </button>
+          </SheetTrigger>
+          <SheetContent side="left" className="bg-background/95 backdrop-blur-md border-r-0">
+            <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+            <div className="flex flex-col space-y-8 mt-20">
+              {navItems.map((item) => (
+                <a 
+                  key={item.label}
+                  href={item.href} 
+                  className="text-xl font-bold uppercase tracking-[0.2em] text-foreground hover:text-secondary transition-colors"
+                >
+                  {item.label}
+                </a>
+              ))}
+              <Button 
+                variant="secondary" 
+                className="w-full rounded-none font-bold uppercase tracking-[0.2em] text-xs py-6 mt-4"
+                asChild
+              >
+                <Link href="/login">Get Started</Link>
+              </Button>
+            </div>
+          </SheetContent>
+        </Sheet>
+      </div>
+
       <Link href="/" className={cn(
         "font-headline text-2xl font-black tracking-tighter uppercase border-b-2",
         isScrolled ? "border-primary" : "border-white"
@@ -68,37 +100,8 @@ export default function Navigation() {
         </Button>
       </div>
 
-      {/* Mobile/Small Tablet Navigation */}
-      <div className="lg:hidden">
-        <Sheet>
-          <SheetTrigger asChild>
-            <button className="p-2" aria-label="Open Menu">
-              <Menu className={cn("w-6 h-6", isScrolled ? "text-black" : "text-white")} />
-            </button>
-          </SheetTrigger>
-          <SheetContent side="right" className="bg-background/95 backdrop-blur-md border-l-0">
-            <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-            <div className="flex flex-col space-y-8 mt-20">
-              {navItems.map((item) => (
-                <a 
-                  key={item.label}
-                  href={item.href} 
-                  className="text-xl font-bold uppercase tracking-[0.2em] text-foreground hover:text-secondary transition-colors"
-                >
-                  {item.label}
-                </a>
-              ))}
-              <Button 
-                variant="secondary" 
-                className="w-full rounded-none font-bold uppercase tracking-[0.2em] text-xs py-6 mt-4"
-                asChild
-              >
-                <Link href="/login">Get Started</Link>
-              </Button>
-            </div>
-          </SheetContent>
-        </Sheet>
-      </div>
+      {/* Spacer for mobile to center logo if needed, or maintain layout balance */}
+      <div className="lg:hidden w-10"></div>
     </nav>
   );
 }
