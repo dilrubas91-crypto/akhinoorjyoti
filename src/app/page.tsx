@@ -31,7 +31,7 @@ export default function Home() {
             data-ai-hint={heroImg.imageHint}
           />
         )}
-        <div className="relative z-10 space-y-12">
+        <div className="relative z-10 space-y-12 pt-20">
           <div className="space-y-4">
             <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black text-white leading-[0.85] tracking-tighter uppercase drop-shadow-2xl">
               Seikh <br />
@@ -55,7 +55,7 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Repositioned Archive Navigator */}
+        {/* Archive Navigator */}
         <div className="absolute bottom-16 right-8 z-10 hidden md:flex flex-col items-center">
           <div className="w-px h-24 bg-gradient-to-b from-transparent to-secondary"></div>
           <span className="text-[10px] font-black text-white/50 uppercase tracking-[0.4em] mt-8 [writing-mode:vertical-lr] rotate-180">
