@@ -31,8 +31,8 @@ export default function Home() {
             data-ai-hint={heroImg.imageHint}
           />
         )}
-        <div className="relative z-10 space-y-16 pt-32 pb-20">
-          <div className="space-y-4">
+        <div className="relative z-10 flex flex-col justify-center h-full py-20 space-y-12 md:space-y-20">
+          <div className="pt-20">
             <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black text-white leading-[0.85] tracking-tighter uppercase drop-shadow-2xl">
               Seikh <br />
               <span className="text-secondary italic font-normal ml-0 md:ml-20">Akhinoor Jyoti.</span>
