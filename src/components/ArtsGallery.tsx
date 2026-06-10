@@ -4,7 +4,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Camera, Maximize2, Sparkles } from 'lucide-react';
+import { Camera } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export default function ArtsGallery() {
@@ -58,18 +58,6 @@ export default function ArtsGallery() {
             <p className="font-headline italic">The gallery is currently being curated for professional modeling archives.</p>
           </div>
         )}
-      </div>
-
-      <div className="mt-20 flex flex-col items-center space-y-8">
-        <div className="flex items-center space-x-2 text-accent">
-          <Sparkles className="w-4 h-4" />
-          <span className="text-[10px] font-black uppercase tracking-[0.4em]">Aspiring Editorial Model</span>
-        </div>
-        <button className="group relative px-12 py-5 bg-black text-white overflow-hidden transition-all hover:pr-16">
-          <span className="relative z-10 font-bold uppercase tracking-[0.3em] text-xs">Request Agency Portfolio</span>
-          <div className="absolute right-0 top-0 bottom-0 w-0 bg-secondary group-hover:w-full transition-all duration-500 ease-in-out"></div>
-          <Camera className="absolute right-6 top-1/2 -translate-y-1/2 w-4 h-4 text-white opacity-0 group-hover:opacity-100 transition-all" />
-        </button>
       </div>
     </section>
   );
