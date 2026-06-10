@@ -21,9 +21,9 @@ export default function Navigation() {
     { label: 'Archive', href: '#archive' },
     { label: 'Cognitive', href: '#cognitive' },
     { label: 'Creative', href: '#creative' },
-    { label: 'Arts', href: '#arts' },
     { label: 'Inquiry', href: '#inquiry' },
     { label: 'Vault', href: '#vault' },
+    { label: 'Arts', href: '#arts' },
   ];
 
   return (
