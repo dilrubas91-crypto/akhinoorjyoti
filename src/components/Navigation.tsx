@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
+import { Button } from '@/components/ui/button';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,21 +42,30 @@ export default function Navigation() {
       </div>
       
       {/* Desktop Navigation */}
-      <ul className="hidden md:flex space-x-12">
-        {navItems.map((item) => (
-          <li key={item.label}>
-            <a 
-              href={item.href} 
-              className={cn(
-                "text-xs font-bold uppercase tracking-[0.2em] transition-colors",
-                isScrolled ? "hover:text-secondary" : "hover:text-secondary text-white"
-              )}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <div className="hidden md:flex items-center space-x-12">
+        <ul className="flex space-x-12">
+          {navItems.map((item) => (
+            <li key={item.label}>
+              <a 
+                href={item.href} 
+                className={cn(
+                  "text-xs font-bold uppercase tracking-[0.2em] transition-colors",
+                  isScrolled ? "hover:text-secondary" : "hover:text-secondary text-white"
+                )}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <Button 
+          variant="secondary" 
+          className="rounded-none font-bold uppercase tracking-[0.2em] text-[10px] px-6 h-9"
+          asChild
+        >
+          <a href="#vault">Get Started</a>
+        </Button>
+      </div>
 
       {/* Mobile Navigation */}
       <div className="md:hidden">
@@ -77,6 +87,13 @@ export default function Navigation() {
                   {item.label}
                 </a>
               ))}
+              <Button 
+                variant="secondary" 
+                className="w-full rounded-none font-bold uppercase tracking-[0.2em] text-xs py-6 mt-4"
+                asChild
+              >
+                <a href="#vault">Get Started</a>
+              </Button>
             </div>
           </SheetContent>
         </Sheet>
