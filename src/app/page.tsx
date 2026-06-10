@@ -31,7 +31,7 @@ export default function Home() {
             data-ai-hint={heroImg.imageHint}
           />
         )}
-        <div className="relative z-10 space-y-12 pt-20">
+        <div className="relative z-10 space-y-16 pt-32 pb-20">
           <div className="space-y-4">
             <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black text-white leading-[0.85] tracking-tighter uppercase drop-shadow-2xl">
               Seikh <br />
@@ -39,7 +39,7 @@ export default function Home() {
             </h1>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-16">
+          <div className="flex flex-col md:flex-row md:items-start gap-12 md:gap-20">
             <div className="max-w-xl">
               <p className="text-white/80 text-lg md:text-xl font-body leading-relaxed border-l-2 border-secondary pl-6 py-2">
                 A multidisciplinary exploration of academic rigor, cognitive strategy, and aesthetic expression. Currently studying in the Department of Bengali, University of Dhaka.
