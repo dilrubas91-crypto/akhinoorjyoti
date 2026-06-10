@@ -1,0 +1,41 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Luxurious minimalist academic background",
+      "imageUrl": "https://picsum.photos/seed/radiance1/1920/1080",
+      "imageHint": "minimalist library"
+    },
+    {
+      "id": "modeling-1",
+      "description": "High-fidelity fashion portrait",
+      "imageUrl": "https://picsum.photos/seed/model1/800/1200",
+      "imageHint": "fashion portrait"
+    },
+    {
+      "id": "modeling-2",
+      "description": "Artistic choreography performance",
+      "imageUrl": "https://picsum.photos/seed/dance1/800/1200",
+      "imageHint": "contemporary dance"
+    },
+    {
+      "id": "modeling-3",
+      "description": "Editorial style modeling shoot",
+      "imageUrl": "https://picsum.photos/seed/model2/800/1200",
+      "imageHint": "editorial fashion"
+    },
+    {
+      "id": "modeling-4",
+      "description": "Portrait in archival setting",
+      "imageUrl": "https://picsum.photos/seed/model3/800/1200",
+      "imageHint": "luxury portrait"
+    },
+    {
+      "id": "performance-video-thumb",
+      "description": "Oratory performance thumbnail",
+      "imageUrl": "https://picsum.photos/seed/speech1/1280/720",
+      "imageHint": "public speaking"
+    }
+  ]
+}
