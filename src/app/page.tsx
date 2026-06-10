@@ -11,6 +11,7 @@ import ArtsGallery from '@/components/ArtsGallery';
 import InquiryLab from '@/components/InquiryLab';
 import InquiryForm from '@/components/InquiryForm';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Instagram, Linkedin, Globe } from 'lucide-react';
 
 export default function Home() {
   const heroImg = PlaceHolderImages.find(img => img.id === 'hero-bg');
@@ -78,10 +79,16 @@ export default function Home() {
               © 2024 Academic & Artistic Archives.
             </p>
           </div>
-          <div className="flex space-x-12 text-xs font-bold uppercase tracking-[0.3em]">
-            <a href="#" className="hover:text-secondary transition-colors">Instagram</a>
-            <a href="#" className="hover:text-secondary transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-secondary transition-colors">ResearchGate</a>
+          <div className="flex space-x-8 items-center">
+            <a href="#" className="text-foreground hover:text-secondary transition-colors" aria-label="Instagram">
+              <Instagram className="w-6 h-6" />
+            </a>
+            <a href="#" className="text-foreground hover:text-secondary transition-colors" aria-label="LinkedIn">
+              <Linkedin className="w-6 h-6" />
+            </a>
+            <a href="#" className="text-foreground hover:text-secondary transition-colors" aria-label="ResearchGate">
+              <Globe className="w-6 h-6" />
+            </a>
           </div>
         </div>
         <div className="mt-20 pt-10 border-t border-primary/5 text-center space-y-4">
