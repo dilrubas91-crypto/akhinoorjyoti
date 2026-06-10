@@ -27,9 +27,14 @@ export default function Navigation() {
   return (
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-6 px-10 md:px-20 flex justify-between items-center",
-      isScrolled ? "bg-background/90 backdrop-blur-md py-4 shadow-sm" : "bg-transparent"
+      isScrolled 
+        ? "bg-background/95 backdrop-blur-md py-4 shadow-sm text-foreground" 
+        : "bg-transparent text-white"
     )}>
-      <div className="font-headline text-2xl font-black tracking-tighter uppercase border-b-2 border-primary">
+      <div className={cn(
+        "font-headline text-2xl font-black tracking-tighter uppercase border-b-2",
+        isScrolled ? "border-primary" : "border-white"
+      )}>
         SAJ.
       </div>
       <ul className="hidden md:flex space-x-12">
@@ -37,7 +42,10 @@ export default function Navigation() {
           <li key={item.label}>
             <a 
               href={item.href} 
-              className="text-xs font-bold uppercase tracking-[0.2em] hover:text-secondary transition-colors"
+              className={cn(
+                "text-xs font-bold uppercase tracking-[0.2em] transition-colors",
+                isScrolled ? "hover:text-secondary" : "hover:text-secondary text-white"
+              )}
             >
               {item.label}
             </a>
@@ -45,8 +53,8 @@ export default function Navigation() {
         ))}
       </ul>
       <button className="md:hidden">
-        <span className="block w-6 h-0.5 bg-black mb-1"></span>
-        <span className="block w-6 h-0.5 bg-black"></span>
+        <span className={cn("block w-6 h-0.5 mb-1", isScrolled ? "bg-black" : "bg-white")}></span>
+        <span className={cn("block w-6 h-0.5", isScrolled ? "bg-black" : "bg-white")}></span>
       </button>
     </nav>
   );
