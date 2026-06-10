@@ -1,14 +1,39 @@
 
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Camera } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+interface LocalImage {
+  id: string;
+  url: string;
+  caption: string;
+}
+
 export default function ArtsGallery() {
-  const modelingImages = PlaceHolderImages.filter(img => img.id.startsWith('modeling-'));
+  const [localImages, setLocalImages] = useState<LocalImage[]>([]);
+  const staticModelingImages = PlaceHolderImages.filter(img => img.id.startsWith('modeling-'));
+
+  useEffect(() => {
+    const saved = localStorage.getItem('localGallery');
+    if (saved) {
+      setLocalImages(JSON.parse(saved));
+    }
+  }, []);
+
+  // Combine static and local images
+  const allImages = [
+    ...localImages.map(img => ({
+      id: img.id,
+      imageUrl: img.url,
+      description: img.caption,
+      imageHint: "custom upload"
+    })),
+    ...staticModelingImages
+  ];
 
   return (
     <section id="arts" className="py-24 editorial-grid bg-white">
@@ -27,14 +52,14 @@ export default function ArtsGallery() {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 editorial-full px-4 md:px-20">
-        {modelingImages.length > 0 ? (
-          modelingImages.map((img, idx) => (
+        {allImages.length > 0 ? (
+          allImages.map((img, idx) => (
             <div 
-              key={idx} 
+              key={img.id || idx} 
               className={cn(
                 "relative group overflow-hidden cursor-crosshair aspect-[2/3]",
-                idx === 1 ? "md:mt-24" : "",
-                idx === 3 ? "md:mt-12" : ""
+                idx % 4 === 1 ? "md:mt-24" : "",
+                idx % 4 === 3 ? "md:mt-12" : ""
               )}
             >
               <Image 
@@ -43,10 +68,11 @@ export default function ArtsGallery() {
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
                 data-ai-hint={img.imageHint}
+                unoptimized={img.imageUrl.startsWith('data:')}
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-500 flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100">
                 <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 space-y-2">
-                  <span className="text-[10px] text-white font-bold uppercase tracking-[0.3em]">Upcoming Archive</span>
+                  <span className="text-[10px] text-white font-bold uppercase tracking-[0.3em]">Archive Asset</span>
                   <p className="text-white font-headline text-lg italic">{img.description}</p>
                 </div>
               </div>

@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,12 +20,12 @@ export default function Navigation() {
   }, []);
 
   const navItems = [
-    { label: 'Archive', href: '#archive' },
-    { label: 'Cognitive', href: '#cognitive' },
-    { label: 'Creative', href: '#creative' },
-    { label: 'Inquiry', href: '#inquiry' },
-    { label: 'Vault', href: '#vault' },
-    { label: 'Arts', href: '#arts' },
+    { label: 'Archive', href: '/#archive' },
+    { label: 'Cognitive', href: '/#cognitive' },
+    { label: 'Creative', href: '/#creative' },
+    { label: 'Inquiry', href: '/#inquiry' },
+    { label: 'Vault', href: '/#vault' },
+    { label: 'Arts', href: '/#arts' },
   ];
 
   return (
@@ -34,12 +35,12 @@ export default function Navigation() {
         ? "bg-background/95 backdrop-blur-md py-4 shadow-sm text-foreground" 
         : "bg-transparent text-white"
     )}>
-      <div className={cn(
+      <Link href="/" className={cn(
         "font-headline text-2xl font-black tracking-tighter uppercase border-b-2",
         isScrolled ? "border-primary" : "border-white"
       )}>
         SAJ.
-      </div>
+      </Link>
       
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center space-x-12">
@@ -63,7 +64,7 @@ export default function Navigation() {
           className="rounded-none font-bold uppercase tracking-[0.2em] text-[10px] px-6 h-9"
           asChild
         >
-          <a href="#vault">Get Started</a>
+          <Link href="/login">Get Started</Link>
         </Button>
       </div>
 
@@ -92,7 +93,7 @@ export default function Navigation() {
                 className="w-full rounded-none font-bold uppercase tracking-[0.2em] text-xs py-6 mt-4"
                 asChild
               >
-                <a href="#vault">Get Started</a>
+                <Link href="/login">Get Started</Link>
               </Button>
             </div>
           </SheetContent>
