@@ -3,6 +3,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { Menu } from 'lucide-react';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,7 +28,7 @@ export default function Navigation() {
 
   return (
     <nav className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-6 px-10 md:px-20 flex justify-between items-center",
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-6 px-6 md:px-20 flex justify-between items-center",
       isScrolled 
         ? "bg-background/95 backdrop-blur-md py-4 shadow-sm text-foreground" 
         : "bg-transparent text-white"
@@ -37,6 +39,8 @@ export default function Navigation() {
       )}>
         SAJ.
       </div>
+      
+      {/* Desktop Navigation */}
       <ul className="hidden md:flex space-x-12">
         {navItems.map((item) => (
           <li key={item.label}>
@@ -52,10 +56,31 @@ export default function Navigation() {
           </li>
         ))}
       </ul>
-      <button className="md:hidden">
-        <span className={cn("block w-6 h-0.5 mb-1", isScrolled ? "bg-black" : "bg-white")}></span>
-        <span className={cn("block w-6 h-0.5", isScrolled ? "bg-black" : "bg-white")}></span>
-      </button>
+
+      {/* Mobile Navigation */}
+      <div className="md:hidden">
+        <Sheet>
+          <SheetTrigger asChild>
+            <button className="p-2" aria-label="Open Menu">
+              <Menu className={cn("w-6 h-6", isScrolled ? "text-black" : "text-white")} />
+            </button>
+          </SheetTrigger>
+          <SheetContent side="right" className="bg-background/95 backdrop-blur-md border-l-0">
+            <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+            <div className="flex flex-col space-y-8 mt-20">
+              {navItems.map((item) => (
+                <a 
+                  key={item.label}
+                  href={item.href} 
+                  className="text-xl font-bold uppercase tracking-[0.2em] text-foreground hover:text-secondary transition-colors"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </SheetContent>
+        </Sheet>
+      </div>
     </nav>
   );
 }
