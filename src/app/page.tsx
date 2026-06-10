@@ -84,9 +84,12 @@ export default function Home() {
             <a href="#" className="hover:text-secondary transition-colors">ResearchGate</a>
           </div>
         </div>
-        <div className="mt-20 pt-10 border-t border-primary/5 text-center">
-          <span className="text-[10px] text-muted-foreground uppercase tracking-widest italic font-headline">
+        <div className="mt-20 pt-10 border-t border-primary/5 text-center space-y-4">
+          <span className="text-[10px] text-muted-foreground uppercase tracking-widest italic font-headline block">
             "Profound silence is the highest expression of rhetoric."
+          </span>
+          <span className="text-[10px] font-bold text-muted-foreground/40 uppercase tracking-widest block">
+            Author: MA
           </span>
         </div>
       </footer>
