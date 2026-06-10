@@ -70,9 +70,9 @@ export default function Home() {
         <ScholarTimeline />
         <CognitiveMatrix />
         <CreativeStage />
-        <ArtsGallery />
         <InquiryLab />
         <InquiryForm />
+        <ArtsGallery />
       </div>
 
       {/* Footer */}
