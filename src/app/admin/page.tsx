@@ -1,13 +1,13 @@
 
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Upload, LogOut, Image as ImageIcon, Trash2 } from 'lucide-react';
+import { Upload, LogOut, Image as ImageIcon, Trash2, AlertCircle } from 'lucide-react';
 
 interface LocalImage {
   id: string;
@@ -17,9 +17,11 @@ interface LocalImage {
 
 export default function AdminPage() {
   const router = useRouter();
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [images, setImages] = useState<LocalImage[]>([]);
   const [caption, setCaption] = useState('');
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
     const session = localStorage.getItem('adminSession');
@@ -28,7 +30,11 @@ export default function AdminPage() {
     }
     const saved = localStorage.getItem('localGallery');
     if (saved) {
-      setImages(JSON.parse(saved));
+      try {
+        setImages(JSON.parse(saved));
+      } catch (e) {
+        console.error("Failed to parse local gallery", e);
+      }
     }
   }, [router]);
 
@@ -38,30 +44,61 @@ export default function AdminPage() {
   };
 
   const handleUpload = () => {
-    if (!selectedFile || !caption) return;
+    if (!selectedFile) {
+      alert('Please select an image file first.');
+      return;
+    }
+    if (!caption.trim()) {
+      alert('Please provide a contextual caption.');
+      return;
+    }
 
+    setIsUploading(true);
     const reader = new FileReader();
+    
     reader.onloadend = () => {
-      const base64String = reader.result as string;
-      const newImage: LocalImage = {
-        id: Date.now().toString(),
-        url: base64String,
-        caption: caption
-      };
-      const updated = [newImage, ...images];
-      setImages(updated);
-      localStorage.setItem('localGallery', JSON.stringify(updated));
-      setCaption('');
-      setSelectedFile(null);
-      alert('Upload Successful to Local Archive.');
+      try {
+        const base64String = reader.result as string;
+        const newImage: LocalImage = {
+          id: Date.now().toString(),
+          url: base64String,
+          caption: caption.trim()
+        };
+        
+        const updated = [newImage, ...images];
+        
+        // Attempt to save to localStorage
+        localStorage.setItem('localGallery', JSON.stringify(updated));
+        
+        // Update local state
+        setImages(updated);
+        setCaption('');
+        setSelectedFile(null);
+        if (fileInputRef.current) fileInputRef.current.value = '';
+        
+        alert('Upload Successful! The image has been committed to your local archive.');
+      } catch (error) {
+        console.error("Upload error:", error);
+        alert('Upload Failed: The image might be too large for local storage. Please try a smaller image (under 2MB recommended).');
+      } finally {
+        setIsUploading(false);
+      }
     };
+
+    reader.onerror = () => {
+      alert('Error reading file. Please try again.');
+      setIsUploading(false);
+    };
+
     reader.readAsDataURL(selectedFile);
   };
 
   const deleteImage = (id: string) => {
-    const updated = images.filter(img => img.id !== id);
-    setImages(updated);
-    localStorage.setItem('localGallery', JSON.stringify(updated));
+    if (confirm('Are you sure you want to remove this asset from the local archive?')) {
+      const updated = images.filter(img => img.id !== id);
+      setImages(updated);
+      localStorage.setItem('localGallery', JSON.stringify(updated));
+    }
   };
 
   return (
@@ -89,10 +126,12 @@ export default function AdminPage() {
                 <label className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Source File</label>
                 <input 
                   type="file" 
+                  ref={fileInputRef}
                   accept="image/*"
                   onChange={(e) => setSelectedFile(e.target.files?.[0] || null)}
-                  className="w-full text-xs text-zinc-500 file:mr-4 file:py-2 file:px-4 file:rounded-none file:border-0 file:text-xs file:font-black file:bg-secondary file:text-white hover:file:bg-white hover:file:text-black"
+                  className="w-full text-xs text-zinc-500 file:mr-4 file:py-2 file:px-4 file:rounded-none file:border-0 file:text-xs file:font-black file:bg-secondary file:text-white hover:file:bg-white hover:file:text-black transition-all cursor-pointer"
                 />
+                <p className="text-[9px] text-zinc-600 italic">Recommended: JPEG/PNG under 2MB</p>
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Contextual Caption</label>
@@ -103,8 +142,12 @@ export default function AdminPage() {
                   className="bg-black border-zinc-800 rounded-none focus:border-secondary text-white min-h-[100px]"
                 />
               </div>
-              <Button onClick={handleUpload} className="w-full bg-secondary hover:bg-white hover:text-black transition-all rounded-none uppercase font-black tracking-widest">
-                Commit to Archive
+              <Button 
+                onClick={handleUpload} 
+                disabled={isUploading}
+                className="w-full bg-secondary hover:bg-white hover:text-black transition-all rounded-none uppercase font-black tracking-widest"
+              >
+                {isUploading ? 'Processing...' : 'Commit to Archive'}
               </Button>
             </CardContent>
           </Card>
@@ -117,12 +160,12 @@ export default function AdminPage() {
                 <p className="font-headline italic">No local assets found in this session.</p>
               </div>
             ) : (
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {images.map(img => (
                   <div key={img.id} className="group relative aspect-[3/4] bg-zinc-900 border border-zinc-800 overflow-hidden">
                     <img src={img.url} alt={img.caption} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
-                      <p className="text-xs font-body italic text-white mb-4">{img.caption}</p>
+                      <p className="text-xs font-body italic text-white mb-4 line-clamp-3">{img.caption}</p>
                       <Button 
                         onClick={() => deleteImage(img.id)}
                         variant="destructive" 
