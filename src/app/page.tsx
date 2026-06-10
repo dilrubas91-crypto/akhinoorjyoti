@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -20,7 +21,7 @@ export default function Home() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center editorial-grid bg-black overflow-hidden">
+      <section className="relative min-h-screen flex items-center editorial-grid bg-black overflow-hidden pt-20">
         {heroImg && (
           <Image 
             src={heroImg.imageUrl}
@@ -31,26 +32,26 @@ export default function Home() {
             data-ai-hint={heroImg.imageHint}
           />
         )}
-        <div className="relative z-10 flex flex-col justify-center h-full py-20 space-y-12 md:space-y-20">
-          <div className="pt-20">
+        <div className="relative z-10 flex flex-col justify-center w-full py-20 space-y-12 md:space-y-16">
+          <div className="pt-12">
             <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black text-white leading-[0.85] tracking-tighter uppercase drop-shadow-2xl">
               Seikh <br />
               <span className="text-secondary italic font-normal ml-0 md:ml-20">Akhinoor Jyoti.</span>
             </h1>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-start gap-12 md:gap-20">
+          <div className="flex flex-col md:flex-row md:items-start gap-12 md:gap-20 bg-black/40 backdrop-blur-sm p-6 md:p-0">
             <div className="max-w-xl">
               <p className="text-white/80 text-lg md:text-xl font-body leading-relaxed border-l-2 border-secondary pl-6 py-2">
                 A multidisciplinary exploration of academic rigor, cognitive strategy, and aesthetic expression. Currently studying in the Department of Bengali, University of Dhaka.
               </p>
             </div>
-            <div className="flex flex-col space-y-2 pt-2">
+            <div className="flex flex-col space-y-3 pt-2">
               <div className="flex items-center space-x-4">
                 <div className="h-px w-12 bg-white/20"></div>
                 <span className="text-[10px] font-bold text-white uppercase tracking-widest">Scholar & Performer</span>
               </div>
-              <span className="text-secondary font-headline italic text-2xl">University of Dhaka</span>
+              <span className="text-secondary font-headline italic text-3xl md:text-4xl">University of Dhaka</span>
             </div>
           </div>
         </div>
