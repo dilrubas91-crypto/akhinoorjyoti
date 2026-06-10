@@ -43,15 +43,15 @@ export default function Navigation() {
       </Link>
       
       {/* Desktop Navigation */}
-      <div className="hidden md:flex items-center space-x-12">
-        <ul className="flex space-x-12">
+      <div className="hidden lg:flex items-center space-x-10">
+        <ul className="flex space-x-10">
           {navItems.map((item) => (
             <li key={item.label}>
               <a 
                 href={item.href} 
                 className={cn(
-                  "text-xs font-bold uppercase tracking-[0.2em] transition-colors",
-                  isScrolled ? "hover:text-secondary" : "hover:text-secondary text-white"
+                  "text-[11px] font-bold uppercase tracking-[0.2em] transition-colors",
+                  isScrolled ? "hover:text-secondary text-foreground" : "hover:text-secondary text-white"
                 )}
               >
                 {item.label}
@@ -68,8 +68,8 @@ export default function Navigation() {
         </Button>
       </div>
 
-      {/* Mobile Navigation */}
-      <div className="md:hidden">
+      {/* Mobile/Small Tablet Navigation */}
+      <div className="lg:hidden">
         <Sheet>
           <SheetTrigger asChild>
             <button className="p-2" aria-label="Open Menu">
