@@ -32,24 +32,29 @@ export default function Home() {
             data-ai-hint={heroImg.imageHint}
           />
         )}
-        <div className="relative z-10 space-y-8">
-          <span className="block text-secondary font-black tracking-[0.6em] uppercase text-sm animate-fade-in">
-            Intellectual Performance Art
-          </span>
-          <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black text-white leading-[0.85] tracking-tighter uppercase drop-shadow-2xl">
-            Seikh <br />
-            <span className="text-secondary italic font-normal ml-0 md:ml-20">Akhinoor Jyoti.</span>
-          </h1>
-          <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-12 pt-8">
-            <div className="max-w-md">
-              <p className="text-white/60 text-lg font-body leading-relaxed">
+        <div className="relative z-10 space-y-12">
+          <div className="space-y-4">
+            <span className="block text-secondary font-black tracking-[0.6em] uppercase text-sm animate-fade-in">
+              Intellectual Performance Art
+            </span>
+            <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black text-white leading-[0.85] tracking-tighter uppercase drop-shadow-2xl">
+              Seikh <br />
+              <span className="text-secondary italic font-normal ml-0 md:ml-20">Akhinoor Jyoti.</span>
+            </h1>
+          </div>
+
+          <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-16">
+            <div className="max-w-xl">
+              <p className="text-white/80 text-lg md:text-xl font-body leading-relaxed border-l-2 border-secondary pl-6 py-2">
                 A multidisciplinary exploration of academic rigor, cognitive strategy, and aesthetic expression. Currently studying in the Department of Bengali, University of Dhaka.
               </p>
             </div>
-            <div className="flex space-x-6 h-px w-24 bg-white/20 hidden md:block"></div>
-            <div className="flex flex-col space-y-1">
-              <span className="text-[10px] font-bold text-white uppercase tracking-widest">Scholar & Performer</span>
-              <span className="text-secondary font-headline italic text-xl">University of Dhaka</span>
+            <div className="flex flex-col space-y-2 pt-2">
+              <div className="flex items-center space-x-4">
+                <div className="h-px w-12 bg-white/20"></div>
+                <span className="text-[10px] font-bold text-white uppercase tracking-widest">Scholar & Performer</span>
+              </div>
+              <span className="text-secondary font-headline italic text-2xl">University of Dhaka</span>
             </div>
           </div>
         </div>
