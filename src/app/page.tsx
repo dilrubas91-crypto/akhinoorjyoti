@@ -42,12 +42,12 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-12 pt-8">
             <div className="max-w-md">
               <p className="text-white/60 text-lg font-body leading-relaxed">
-                A multidisciplinary exploration of academic rigor, cognitive strategy, and aesthetic expression. Bridging the gap between linguistic excellence and high-fidelity modeling.
+                A multidisciplinary exploration of academic rigor, cognitive strategy, and aesthetic expression. Currently studying in the Department of Bengali, University of Dhaka.
               </p>
             </div>
             <div className="flex space-x-6 h-px w-24 bg-white/20 hidden md:block"></div>
             <div className="flex flex-col space-y-1">
-              <span className="text-[10px] font-bold text-white uppercase tracking-widest">Currently At</span>
+              <span className="text-[10px] font-bold text-white uppercase tracking-widest">Scholar & Performer</span>
               <span className="text-secondary font-headline italic text-xl">University of Dhaka</span>
             </div>
           </div>
@@ -55,7 +55,7 @@ export default function Home() {
         
         <div className="absolute bottom-12 right-12 z-10 flex flex-col items-end">
           <div className="w-1 h-20 bg-gradient-to-b from-transparent to-secondary"></div>
-          <span className="text-[10px] font-black text-white uppercase tracking-widest mt-4 rotate-90 origin-right translate-y-8">Scroll Explorer</span>
+          <span className="text-[10px] font-black text-white uppercase tracking-widest mt-4 rotate-90 origin-right translate-y-8">Archive Navigator</span>
         </div>
       </section>
 
@@ -75,7 +75,7 @@ export default function Home() {
           <div className="text-center md:text-left">
             <div className="font-headline text-4xl font-black uppercase mb-4 leading-tight">Seikh Akhinoor <br/> Jyoti</div>
             <p className="text-muted-foreground text-sm uppercase tracking-widest font-bold">
-              © 2024 Intellectual Portfolio & Artistic Archives.
+              © 2024 Academic & Artistic Archives.
             </p>
           </div>
           <div className="flex space-x-12 text-xs font-bold uppercase tracking-[0.3em]">

@@ -3,43 +3,43 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Microscope, Grid3x3, Languages, Brain } from 'lucide-react';
+import { Grid3x3, Languages, Brain, Cpu } from 'lucide-react';
 
 const strategyNodes = [
   {
-    title: "Strategic Chess Dynamics",
-    description: "Visualizing positional sacrifices and end-game patterns through pure logical deduction.",
+    title: "Strategic Dynamics",
+    description: "Practicing advanced pattern recognition and tactical planning through competitive Chess frameworks to master positional logic.",
     icon: <Brain className="w-8 h-8 text-secondary" />,
     stats: [
-      { label: "Complexity", value: "95%" },
+      { label: "Tactical Planning", value: "95%" },
       { label: "Pattern Recognition", value: "98%" }
     ]
   },
   {
-    title: "Linguistic Mechanics",
-    description: "Decoding cryptic word puzzles by analyzing semantic layers and phonological shifts.",
-    icon: <Languages className="w-8 h-8 text-secondary" />,
-    stats: [
-      { label: "Etymology", value: "88%" },
-      { label: "Logic", value: "92%" }
-    ]
-  },
-  {
-    title: "Sudoku Variants",
-    description: "Navigating non-standard constraints in irregular, killer, and thermosudoku grids.",
+    title: "Logical Deductions",
+    description: "Engaging in complex quantitative matrices and Sudoku variants to optimize working memory and deductive speed.",
     icon: <Grid3x3 className="w-8 h-8 text-secondary" />,
     stats: [
-      { label: "Constraint Satisfaction", value: "94%" },
-      { label: "Speed", value: "91%" }
+      { label: "Working Memory", value: "94%" },
+      { label: "Matrix Solving", value: "92%" }
     ]
   },
   {
-    title: "Logical Matrices",
-    description: "Solving multi-layered logical deduction matrices focusing on behavioral heuristics.",
-    icon: <Microscope className="w-8 h-8 text-secondary" />,
+    title: "Linguistic Mechanics",
+    description: "Solving high-level word puzzles and cryptic crosswords to enhance lateral thinking and fluid recall of semantic nuances.",
+    icon: <Languages className="w-8 h-8 text-secondary" />,
     stats: [
-      { label: "Deduction", value: "97%" },
-      { label: "Analysis", value: "89%" }
+      { label: "Lateral Thinking", value: "96%" },
+      { label: "Fluid Recall", value: "91%" }
+    ]
+  },
+  {
+    title: "Abstract Reasoning",
+    description: "Regularly challenging cognitive thresholds utilizing high-range psychometric appraisals and advanced logic matrices.",
+    icon: <Cpu className="w-8 h-8 text-secondary" />,
+    stats: [
+      { label: "Psychometrics", value: "97%" },
+      { label: "Logic Matrices", value: "89%" }
     ]
   }
 ];
@@ -48,13 +48,13 @@ export default function CognitiveMatrix() {
   return (
     <section id="cognitive" className="py-24 editorial-grid bg-black text-white">
       <div className="mb-20 space-y-4">
-        <span className="text-secondary font-bold tracking-[0.4em] uppercase text-xs">Module 02</span>
+        <span className="text-secondary font-bold tracking-[0.4em] uppercase text-xs">Module 02: Mental Architecture</span>
         <h2 className="text-5xl md:text-7xl font-black tracking-tight leading-none uppercase text-background">
           Cognitive Matrix <br />
           <span className="text-accent italic font-normal">& Strategy Hub</span>
         </h2>
         <p className="text-muted-foreground text-lg max-w-2xl font-body">
-          The architecture of the mind: Exploring the interplay between high-level logic, linguistic puzzles, and strategic gameplay.
+          I enjoy challenging my mental abilities through high-level logic, strategic dynamics, and linguistic mechanical puzzles.
         </p>
       </div>
 

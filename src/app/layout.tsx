@@ -3,8 +3,8 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Seikh Akhinoor Jyoti | Academic & Artistic Portfolio',
-  description: 'A comprehensive interactive archive of academic excellence, cognitive strategy, and artistic performance by Seikh Akhinoor Jyoti.',
+  title: 'Seikh Akhinoor Jyoti | Intellectual & Artistic Portfolio',
+  description: 'A comprehensive archive of academic excellence, cognitive strategy, and aesthetic performance by Seikh Akhinoor Jyoti, University of Dhaka.',
 };
 
 export default function RootLayout({

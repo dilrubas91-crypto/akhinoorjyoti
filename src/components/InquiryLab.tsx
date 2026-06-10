@@ -2,37 +2,37 @@
 "use client";
 
 import React from 'react';
-import { Telescope, Landmark, BrainCircuit, Hash } from 'lucide-react';
+import { Telescope, Landmark, BrainCircuit, Hash, Globe, Layers } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 const researchTopics = [
   {
-    title: "Abstract Conceptual Models",
-    category: "Logic",
-    description: "Formulating frameworks for visual-spatial reasoning within linguistic constraints.",
-    icon: <Hash className="w-6 h-6" />,
-    tags: ["Graph Theory", "Syntactic Logic"]
-  },
-  {
-    title: "Behavioral Heuristics",
+    title: "Psychological Pattern Research",
     category: "Psychology",
-    description: "Researching pattern recognition biases in human decision-making under uncertainty.",
+    description: "Studying behavioral heuristics, cognitive biases, and personality frameworks to map human decision-making and interpersonal dynamics.",
     icon: <BrainCircuit className="w-6 h-6" />,
-    tags: ["Cognitive Bias", "Game Theory"]
+    tags: ["Heuristics", "Cognitive Bias", "Personality"]
   },
   {
-    title: "Personal Identity Paradox",
+    title: "Philosophical Hypothetics",
     category: "Philosophy",
-    description: "Thought experiments on the persistence of self through biological and psychological shifts.",
+    description: "Engaging with high-level thought experiments, metaphysical hypotheses, and problems of personal identity to sharpen lateral reasoning.",
     icon: <Landmark className="w-6 h-6" />,
-    tags: ["Ontology", "Phenomenology"]
+    tags: ["Metaphysics", "Ontology", "Identity"]
   },
   {
-    title: "Celestial Navigation Patterns",
+    title: "Symbolic Systems & Archetypes",
+    category: "Archetypal Psychology",
+    description: "Analyzing historical and astrological frameworks as macro-level pattern-matching models to study archetypal human behavior mapping.",
+    icon: <Layers className="w-6 h-6" />,
+    tags: ["Archetypes", "Astrology", "Symbolism"]
+  },
+  {
+    title: "Celestial Navigation & Astronomy",
     category: "Astronomy",
-    description: "Exploring historical archetypes in star-mapping and their influence on early mythology.",
+    description: "Active exploration of celestial models and star-mapping archetypes as systemic frameworks for understanding the universe's structure.",
     icon: <Telescope className="w-6 h-6" />,
-    tags: ["Astrophysics", "Cosmology"]
+    tags: ["Astronomy", "Cosmology", "Systemic Models"]
   }
 ];
 
@@ -41,12 +41,15 @@ export default function InquiryLab() {
     <section id="inquiry" className="py-24 editorial-grid border-t">
       <div className="mb-20 space-y-4 flex flex-col md:flex-row md:items-end md:justify-between">
         <div className="space-y-4">
+           <div className="flex items-center space-x-2">
+             <Badge className="bg-secondary hover:bg-secondary">Intellectual Inquiry</Badge>
+           </div>
           <h2 className="text-5xl md:text-7xl font-black tracking-tight leading-none uppercase">
             Intellectual <br />
             <span className="text-accent italic font-normal">Inquiry Lab</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl font-body">
-            Categorized sections that explain abstract conceptual models, psychological research, and philosophical thought experiments.
+            Active exploration of abstract conceptual models, behavioral data, and systemic archetypes that define our perception of reality.
           </p>
         </div>
         <div className="hidden md:block">

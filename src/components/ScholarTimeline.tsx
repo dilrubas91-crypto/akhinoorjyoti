@@ -4,7 +4,8 @@
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { GraduationCap, Award, BookOpen, Star } from 'lucide-react';
+import { GraduationCap, Award, BookOpen, Star, Trophy } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const achievements = [
   {
@@ -12,35 +13,36 @@ const achievements = [
     title: "Primary Education Completion (PEC)",
     description: "Laid the foundation of academic discipline and early literary interest.",
     icon: GraduationCap,
-    highlight: "Talent Pool Scholarship"
+    highlight: "GPA-5 | Talent Pool Scholarship"
   },
   {
     year: "2019",
     title: "Junior School Certificate (JSC)",
     description: "Excellence in humanities and linguistic arts with top honors.",
     icon: BookOpen,
-    highlight: "District Level Distinction"
+    highlight: "GPA-5 | Talent Pool Scholarship"
   },
   {
     year: "2022",
     title: "Secondary School Certificate (SSC)",
-    description: "Consistent academic performance, bridging analytical logic with literature.",
+    description: "Achieved the 2nd position in the board with 1256 marks, bridging analytical logic with literature.",
     icon: Star,
+    stats: "2nd in Board | 1256 Marks",
+    highlight: "GPA-5 | Talent Pool Scholarship"
   },
   {
     year: "2024",
     title: "Higher Secondary Certificate (HSC)",
-    description: "Achieved a historic milestone in the national board exams.",
+    description: "Continued academic excellence with top-tier results in the national board exams.",
     icon: Award,
-    stats: "2nd Position in Board | 1256 Marks",
-    highlight: "National Merit Talent Pull Scholarship"
+    highlight: "GPA-5 | General Scholarship"
   },
   {
     year: "Present",
     title: "University of Dhaka",
-    description: "Deepening exploration in the Bengali Department, University of Dhaka, focusing on linguistic evolution and classical prose.",
+    description: "1st Year Student in the Department of Bengali. Deepening exploration of linguistic evolution, classical prose, and literary synthesis.",
     icon: BookOpen,
-    highlight: "Bengali Department"
+    highlight: "Department of Bengali"
   }
 ];
 
@@ -48,12 +50,16 @@ export default function ScholarTimeline() {
   return (
     <section id="archive" className="py-24 editorial-grid">
       <div className="mb-20 space-y-4">
+        <div className="flex items-center space-x-4">
+           <div className="h-px bg-secondary w-12"></div>
+           <span className="text-xs font-bold uppercase tracking-[0.4em] text-secondary">Academic Excellence</span>
+        </div>
         <h2 className="text-5xl md:text-7xl font-black tracking-tight leading-none uppercase">
           The Scholar&apos;s <br />
           <span className="text-secondary italic font-normal">Interactive Archive</span>
         </h2>
         <p className="text-muted-foreground text-lg max-w-2xl font-body">
-          A chronicled journey of academic rigor and intellectual evolution, from foundational excellence to specialized linguistic research.
+          A chronicled journey of academic rigor, from foundational talent pool scholarships to historic board achievements.
         </p>
       </div>
 
@@ -99,5 +105,3 @@ export default function ScholarTimeline() {
     </section>
   );
 }
-
-import { cn } from '@/lib/utils';
