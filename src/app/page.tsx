@@ -40,7 +40,7 @@ export default function Home() {
             </h1>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-6 bg-black/40 backdrop-blur-sm p-6 md:p-0">
+          <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-2 bg-black/40 backdrop-blur-sm p-6 md:p-0">
             <div className="max-w-xl">
               <p className="text-white/80 text-lg md:text-xl font-body leading-relaxed border-l-2 border-secondary pl-6 py-2">
                 A multidisciplinary exploration of academic rigor, cognitive strategy, and aesthetic expression. Currently studying in the Department of Bengali, University of Dhaka.
