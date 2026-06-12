@@ -34,7 +34,7 @@ export default function InquiryForm() {
 
   return (
     <section id="vault" className="py-24 editorial-grid bg-accent text-white overflow-hidden">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-32 items-center">
         <div className="space-y-8">
           <div className="inline-flex items-center space-x-3 text-white/60">
             <ShieldCheck className="w-5 h-5" />
@@ -55,7 +55,7 @@ export default function InquiryForm() {
           </div>
         </div>
 
-        <div className="bg-background text-foreground p-6 md:p-12 shadow-2xl">
+        <div className="bg-background text-foreground p-6 md:p-12 shadow-2xl md:ml-auto w-full">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
