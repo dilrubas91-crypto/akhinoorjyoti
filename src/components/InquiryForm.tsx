@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -34,8 +35,8 @@ export default function InquiryForm() {
 
   return (
     <section id="vault" className="py-24 editorial-grid bg-accent text-white overflow-hidden">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-32 items-center">
-        <div className="space-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-12 md:gap-20 items-center">
+        <div className="space-y-8 pr-4">
           <div className="inline-flex items-center space-x-3 text-white/60">
             <ShieldCheck className="w-5 h-5" />
             <span className="text-xs font-bold uppercase tracking-[0.3em]">Secure Correspondence</span>
@@ -44,7 +45,7 @@ export default function InquiryForm() {
             Engagement <br />
             <span className="text-secondary italic font-normal">& Inquiries Vault</span>
           </h2>
-          <p className="text-white/70 text-lg font-body leading-relaxed">
+          <p className="text-white/70 text-lg font-body leading-relaxed max-w-xl">
             Professional modeling agency inquiries and visitor messages are processed through our high-fidelity encryption vault for secure long-term archival.
           </p>
           <div className="pt-6 md:pt-10 space-y-4">
@@ -55,7 +56,7 @@ export default function InquiryForm() {
           </div>
         </div>
 
-        <div className="bg-background text-foreground p-6 md:p-12 shadow-2xl md:ml-auto w-full">
+        <div className="bg-background text-foreground p-6 md:p-12 shadow-2xl w-full">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
