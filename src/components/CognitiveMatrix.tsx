@@ -65,7 +65,7 @@ export default function CognitiveMatrix() {
               <div className="p-3 bg-zinc-800 w-fit group-hover:scale-110 transition-transform">
                 {node.icon}
               </div>
-              <CardTitle className="text-3xl font-headline tracking-tight">{node.title}</CardTitle>
+              <CardTitle className="text-3xl font-headline tracking-tight text-white">{node.title}</CardTitle>
             </CardHeader>
             <CardContent className="p-0 mt-6 space-y-6">
               <p className="text-zinc-400 font-body leading-relaxed">
