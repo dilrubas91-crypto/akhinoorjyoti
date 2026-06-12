@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -38,13 +37,13 @@ const researchTopics = [
 
 export default function InquiryLab() {
   return (
-    <section id="inquiry" className="py-24 editorial-grid border-t">
+    <section id="inquiry" className="py-24 editorial-grid border-t overflow-hidden">
       <div className="mb-20 space-y-4 flex flex-col md:flex-row md:items-end md:justify-between">
         <div className="space-y-4">
            <div className="flex items-center space-x-2">
              <Badge className="bg-secondary hover:bg-secondary">Intellectual Inquiry</Badge>
            </div>
-          <h2 className="text-5xl md:text-7xl font-black tracking-tight leading-none uppercase">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight leading-none uppercase">
             Intellectual <br />
             <span className="text-accent italic font-normal">Inquiry Lab</span>
           </h2>
@@ -59,9 +58,9 @@ export default function InquiryLab() {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
         {researchTopics.map((topic, idx) => (
-          <div key={idx} className="p-10 border border-primary/10 hover:border-accent transition-all duration-500 bg-white/30 backdrop-blur-sm group">
+          <div key={idx} className="p-6 md:p-10 border border-primary/10 hover:border-accent transition-all duration-500 bg-white/30 backdrop-blur-sm group">
             <div className="flex items-start justify-between mb-8">
               <div className="p-4 bg-accent text-white group-hover:bg-secondary transition-colors">
                 {topic.icon}

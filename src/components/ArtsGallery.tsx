@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -20,11 +19,14 @@ export default function ArtsGallery() {
   useEffect(() => {
     const saved = localStorage.getItem('localGallery');
     if (saved) {
-      setLocalImages(JSON.parse(saved));
+      try {
+        setLocalImages(JSON.parse(saved));
+      } catch (e) {
+        console.error("Failed to load local gallery", e);
+      }
     }
   }, []);
 
-  // Combine static and local images
   const allImages = [
     ...localImages.map(img => ({
       id: img.id,
@@ -36,13 +38,13 @@ export default function ArtsGallery() {
   ];
 
   return (
-    <section id="arts" className="py-24 editorial-grid bg-white">
+    <section id="arts" className="py-24 editorial-grid bg-white overflow-hidden">
       <div className="mb-20 space-y-4">
         <div className="flex items-center space-x-4">
            <div className="h-px bg-secondary flex-grow max-w-[100px]"></div>
            <span className="text-xs font-bold uppercase tracking-[0.4em] text-secondary">Aesthetic Perspective</span>
         </div>
-        <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-none uppercase">
+        <h2 className="text-4xl sm:text-5xl md:text-8xl font-black tracking-tighter leading-none uppercase">
           Modeling <br />
           <span className="italic font-normal">Gallery</span>
         </h2>
@@ -51,15 +53,15 @@ export default function ArtsGallery() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 editorial-full px-4 md:px-20">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 editorial-full px-4 md:px-20">
         {allImages.length > 0 ? (
           allImages.map((img, idx) => (
             <div 
               key={img.id || idx} 
               className={cn(
                 "relative group overflow-hidden cursor-crosshair aspect-[2/3]",
-                idx % 4 === 1 ? "md:mt-24" : "",
-                idx % 4 === 3 ? "md:mt-12" : ""
+                (idx % 4 === 1 && typeof window !== 'undefined' && window.innerWidth > 768) ? "md:mt-24" : "",
+                (idx % 4 === 3 && typeof window !== 'undefined' && window.innerWidth > 768) ? "md:mt-12" : ""
               )}
             >
               <Image 
@@ -70,10 +72,10 @@ export default function ArtsGallery() {
                 data-ai-hint={img.imageHint}
                 unoptimized={img.imageUrl.startsWith('data:')}
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-500 flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100">
-                <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 space-y-2">
-                  <span className="text-[10px] text-white font-bold uppercase tracking-[0.3em]">Archive Asset</span>
-                  <p className="text-white font-headline text-lg italic">{img.description}</p>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-500 flex flex-col justify-end p-4 md:p-8 opacity-0 group-hover:opacity-100">
+                <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 space-y-1 md:space-y-2">
+                  <span className="text-[8px] md:text-[10px] text-white font-bold uppercase tracking-[0.3em]">Archive Asset</span>
+                  <p className="text-white font-headline text-sm md:text-lg italic line-clamp-2">{img.description}</p>
                 </div>
               </div>
             </div>

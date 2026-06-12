@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from 'react';
@@ -30,26 +29,25 @@ export default function InquiryForm() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
-    // Submit to Firebase/Backend would go here
     alert("Inquiry secured in the vault. We will correspond shortly.");
   }
 
   return (
-    <section id="vault" className="py-24 editorial-grid bg-accent text-white">
-      <div className="grid md:grid-cols-2 gap-20">
+    <section id="vault" className="py-24 editorial-grid bg-accent text-white overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
         <div className="space-y-8">
           <div className="inline-flex items-center space-x-3 text-white/60">
             <ShieldCheck className="w-5 h-5" />
             <span className="text-xs font-bold uppercase tracking-[0.3em]">Secure Correspondence</span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-black tracking-tight leading-none uppercase">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tight leading-none uppercase">
             Engagement <br />
             <span className="text-secondary italic font-normal">& Inquiries Vault</span>
           </h2>
           <p className="text-white/70 text-lg font-body leading-relaxed">
             Professional modeling agency inquiries and visitor messages are processed through our high-fidelity encryption vault for secure long-term archival.
           </p>
-          <div className="pt-10 space-y-4">
+          <div className="pt-6 md:pt-10 space-y-4">
             <div className="border-l-2 border-secondary pl-6">
               <p className="text-xs font-bold uppercase tracking-widest text-white/50 mb-1">Office Location</p>
               <p className="font-headline italic text-lg">Dhaka University Campus, Dhaka, BD</p>
@@ -57,10 +55,10 @@ export default function InquiryForm() {
           </div>
         </div>
 
-        <div className="bg-background text-foreground p-8 md:p-12 shadow-2xl">
+        <div className="bg-background text-foreground p-6 md:p-12 shadow-2xl">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <FormField
                   control={form.control}
                   name="name"
@@ -108,7 +106,7 @@ export default function InquiryForm() {
                   <FormItem>
                     <FormLabel className="uppercase text-[10px] font-black tracking-widest opacity-60">Detailed Message</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Please specify terms and psychological subtext of the project..." className="min-h-[150px] rounded-none border border-primary/10 focus-visible:ring-0 focus-visible:border-secondary transition-all" {...field} />
+                      <Textarea placeholder="Please specify terms..." className="min-h-[120px] rounded-none border border-primary/10 focus-visible:ring-0 focus-visible:border-secondary transition-all" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
