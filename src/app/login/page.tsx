@@ -18,7 +18,7 @@ export default function LoginPage() {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     // এই কন্ডিশনটির ভেতরেই ইমেল এবং পাসওয়ার্ড হার্ডকোড করা আছে
-    if (email === 'admin@gmail.com' && password === '12345678') {
+    if (email === 'admin@gmail.com' && password === 'akhinoorqwer') {
       localStorage.setItem('adminSession', 'true');
       router.push('/admin');
     } else {
